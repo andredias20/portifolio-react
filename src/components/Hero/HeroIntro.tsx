@@ -6,8 +6,9 @@ export function HeroIntro() {
                 Desenvolvedor Full Stack / Backend
             </h2>
             <hr className="border-t border-gray-300" />
-            <p>
-                Desenvolvedor Full Stack com foco em APIs, integrações, sistemas corporativos e automações, atuando principalmente com Java, Spring, C#, bancos de dados e soluções backend.
+            <p style={{fontStyle: "italic"}}>
+                "Qualquer um pode escrever um código que o computador entenda. Bons programadores escrevem códigos que os humanos entendam."
+                Martin Fowler
             </p>
         </div>
     );
