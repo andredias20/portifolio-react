@@ -1,73 +1,106 @@
-# React + TypeScript + Vite
+# André Dias Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portfolio pessoal/profissional com objetivo de apresentar experiência, stack técnica, projetos e interesses técnicos em uma interface limpa, responsiva e com aparência de produto.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React
+- Vite
+- TypeScript
+- Tailwind CSS
+- ESLint
 
-## React Compiler
+## Requisitos
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Este projeto usa versões recentes do Vite e Tailwind. Use Node.js compatível com o arquivo `.nvmrc`.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+nvm use
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Versão esperada atualmente:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```txt
+v22.13.1
 ```
+
+## Como rodar localmente
+
+```bash
+npm install
+npm run dev
+```
+
+Depois abra a URL exibida pelo Vite no terminal.
+
+## Scripts
+
+```bash
+npm run dev
+```
+
+Inicia o servidor de desenvolvimento.
+
+```bash
+npm run build
+```
+
+Executa a checagem TypeScript e gera a versão de produção em `dist/`.
+
+```bash
+npm run preview
+```
+
+Serve localmente a build de produção.
+
+```bash
+npm run lint
+```
+
+Executa ESLint no projeto.
+
+## Estrutura do projeto
+
+```txt
+src/
+  assets/
+  components/
+    Header/
+  styles/
+  types/
+  App.tsx
+  main.tsx
+```
+
+Organização pretendida:
+
+- `src/components`: componentes visuais da interface.
+- `src/types`: contratos TypeScript usados pelos dados e componentes.
+- `src/styles`: tokens e estilos globais.
+- `src/assets`: imagens, logos e outros assets usados pela aplicação.
+
+## Direção visual
+
+O portfólio segue uma estética escura, limpa e técnica, inspirada em interfaces SaaS:
+
+- fundo escuro neutro;
+- cards e bordas discretas;
+- azul como destaque principal;
+- verde para apoio técnico;
+- foco em legibilidade, responsividade e clareza visual.
+
+## Status
+
+Projeto em desenvolvimento.
+
+Próximas etapas planejadas:
+
+- finalizar o Header responsivo;
+- criar Hero, Stack, Experience, Projects, Lab e Contact;
+- mover conteúdo para arquivos em `src/data`;
+- adicionar estados visuais e responsividade completa;
+- preparar deploy público.
+
+## Licença
+
+Projeto pessoal. O conteúdo, identidade visual e dados profissionais pertencem a André de Carli Dias.
