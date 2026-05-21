@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1024" height="1024" viewBox="0 0 1024 1024" version="1.1">
+  <title>ACD Monogram Logo</title>
+  <desc>Vector logo combining the letters A, C and D with blue gradients and transparent background.</desc>
+
+  <defs>
+    <linearGradient id="gradMain" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F8FBFF"/>
+      <stop offset="45%" stop-color="#BFE4FF"/>
+      <stop offset="78%" stop-color="#4A95FF"/>
+      <stop offset="100%" stop-color="#0B46D8"/>
+    </linearGradient>
+
+    <linearGradient id="gradStroke" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#9ED8FF"/>
+      <stop offset="100%" stop-color="#062C9C"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#001850" flood-opacity="0.45"/>
+    </filter>
+
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="0" stdDeviation="9" flood-color="#49B5FF" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <!-- Main A -->
+    <path d="M512 92 L886 874 H744 L647 658 H377 L280 874 H138 Z
+             M512 236 L688 640 H613 L512 405 L411 640 H336 Z"
+          fill="url(#gradMain)" fill-rule="evenodd" stroke="url(#gradStroke)" stroke-width="6" filter="url(#glow)"/>
+
+    <!-- C shadow underlay -->
+    <path d="M636 464 A255 255 0 1 0 636 892"
+          fill="none" stroke="#072D98" stroke-width="103" stroke-linecap="butt"
+          stroke-linejoin="round" opacity="0.9"/>
+
+    <!-- C -->
+    <path d="M636 464 A255 255 0 1 0 636 892"
+          fill="none" stroke="url(#gradMain)" stroke-width="92" stroke-linecap="butt"
+          stroke-linejoin="round" filter="url(#glow)"/>
+
+    <!-- D shadow underlay -->
+    <path d="M620 480 V 876 M620 480 A198 198 0 0 1 620 876"
+          fill="none" stroke="#072D98" stroke-width="99" stroke-linecap="butt"
+          stroke-linejoin="round" opacity="0.9"/>
+
+    <!-- D -->
+    <path d="M620 480 V 876 M620 480 A198 198 0 0 1 620 876"
+          fill="none" stroke="url(#gradMain)" stroke-width="88" stroke-linecap="butt"
+          stroke-linejoin="round" filter="url(#glow)"/>
+
+    <!-- Highlights -->
+    <path d="M512 110 L860 860" stroke="#FFFFFF" stroke-opacity="0.18" stroke-width="9" stroke-linecap="round"/>
+    <path d="M610 484 A225 225 0 0 0 422 686" fill="none" stroke="#FFFFFF" stroke-opacity="0.34" stroke-width="12" stroke-linecap="round"/>
+    <path d="M642 520 A155 155 0 0 1 642 836" fill="none" stroke="#FFFFFF" stroke-opacity="0.22" stroke-width="9" stroke-linecap="round"/>
+  </g>
+</svg>
