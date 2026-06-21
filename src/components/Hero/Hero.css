@@ -1,13 +1,26 @@
+.section-hero-container {
+    width: min(1120px, calc(100% - 32px));
+    margin: 32px auto 0;
+}
+
 .hero-profile-container {
-    margin: calc(0.25rem * 6);
-    display: grid;
-    align-items: center;
+    width: min(100%, 860px);
+    margin: 0 auto;
 }
 
 .profile-container {
     display: flex;
     align-items: center;
     gap: 24px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    width: min(100%, 860px);
+    margin: 24px auto 0;
 }
 
 .profile-picture-container {
@@ -48,4 +61,47 @@
     font-size: 1.125rem;
     font-weight: 400;
     font-style: italic;
+}
+
+@media (max-width: 720px) {
+    .profile-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+    }
+
+    .profile-picture-container {
+        width: 96px;
+        height: 96px;
+    }
+
+    .profile-description-container {
+        margin: 0;
+        align-items: center;
+    }
+
+    .profile-name {
+        font-size: 1.75rem;
+    }
+
+    .profile-description {
+        font-size: 0.9rem;
+    }
+
+    .profile-quote {
+        max-width: 32ch;
+        font-size: 0.85rem;
+    }
+
+    .hero-actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+    }
+
+    .hero-actions-button {
+        width: 100%;
+        justify-content: center;
+        padding-inline: 0.75rem;
+    }
 }
