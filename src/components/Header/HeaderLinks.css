@@ -1,0 +1,22 @@
+.header-links_box {
+    display: none;
+    align-items: center;
+    gap: calc(0.25rem * 8);
+    @media (width >= 48rem) {
+        display: flex;
+    }
+}
+
+.link-button-active {
+    border-bottom-style: solid;
+    border-bottom-width: 2px ;
+    border-color: var(--color-sky-400);
+    color: var(--color-sky-400);
+}
+
+.link-button {
+    color: var(--color-sky-100)
+}
+.link-button:hover {
+    color: var(--color-sky-400)
+}
