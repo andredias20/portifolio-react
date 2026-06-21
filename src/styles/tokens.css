@@ -1,5 +1,6 @@
 :root {
   --color-bg: #0f172a;
+  --color-bg-secondary: rgb(2 6 24 / 0.8);
   --color-card: #1e293b;
   --color-button-border: #314158FF;
   --color-text: #f8fafc;
@@ -7,4 +8,5 @@
   --color-highlight: #38bdf8;
   --color-support: #22c55e;
   --color-emphasis: #f59e0b;
+  --color-test: #border-slate-800
 }
