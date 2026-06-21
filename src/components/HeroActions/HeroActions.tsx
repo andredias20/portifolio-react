@@ -2,7 +2,9 @@ import curriculoIcon from "@/assets/document.svg";
 import githubIcon from "@/assets/github.svg";
 import linkedinIcon from "@/assets/linkedin.svg";
 import mailIcon from "@/assets/mail.svg";
-import { HeroActionButton } from "@/components/Hero/HeroActionButton.tsx";
+
+import { HeroActionButton } from "@/components/HeroActions/HeroActionButton.tsx";
+import "@/components/HeroActions/HeroActions.css";
 
 const heroActions = [
     { label: "Github", icon: githubIcon, href: "https://www.github.com/andredias20" },
@@ -13,7 +15,7 @@ const heroActions = [
 
 export function HeroActions() {
     return (
-        <div id="lower-hero" className="mt-6 flex w-full items-center gap-4">
+        <div className="hero-actions">
             {heroActions.map((action) => (
                 <HeroActionButton
                     key={action.label}

@@ -1,0 +1,4 @@
+.section-hero-container {
+    width: min(1120px, calc(100% - 32px));
+    margin: 32px auto 0;
+}

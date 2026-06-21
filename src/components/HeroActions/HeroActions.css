@@ -1,0 +1,7 @@
+.hero-actions{
+    display:flex;
+    width: 100%;
+    align-items:center;
+    margin-top: calc(0.25rem * 6);
+    gap: calc(0.25rem * 4);
+}
