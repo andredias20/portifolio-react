@@ -10,13 +10,13 @@
 .link-button-active {
     border-bottom-style: solid;
     border-bottom-width: 2px ;
-    border-color: var(--color-sky-400);
-    color: var(--color-sky-400);
+    border-color: var(--color-highlight);
+    color: var(--color-highlight);
 }
 
 .link-button {
-    color: var(--color-sky-100)
+    color: var(--color-text);
 }
 .link-button:hover {
-    color: var(--color-sky-400)
+    color: var(--color-highlight)
 }

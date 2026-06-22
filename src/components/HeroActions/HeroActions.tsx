@@ -1,16 +1,15 @@
-import curriculoIcon from "@/assets/document.svg";
-import githubIcon from "@/assets/github.svg";
-import linkedinIcon from "@/assets/linkedin.svg";
-import mailIcon from "@/assets/mail.svg";
+import { FileText, Mail } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+
 
 import { HeroActionButton } from "@/components/HeroActions/HeroActionButton.tsx";
 import "@/components/HeroActions/HeroActions.css";
 
 const heroActions = [
-    { label: "Github", icon: githubIcon, href: "https://www.github.com/andredias20" },
-    { label: "LinkedIn", icon: linkedinIcon, href: "https://www.linkedin.com/in/andredias20" },
-    { label: "Currículo", icon: curriculoIcon, href: "https://www.andredcdias.com.br/curriculo" },
-    { label: "Contato", icon: mailIcon, href: "malito:andre.c.dias2000@gmail.com" },
+    { label: "Github", icon: FaGithub, href: "https://www.github.com/andredias20" },
+    { label: "LinkedIn", icon: FaLinkedin, href: "https://www.linkedin.com/in/andredias20" },
+    { label: "Currículo", icon:  FileText, href: "https://www.andredcdias.com.br/curriculo" },
+    { label: "Contato", icon: Mail, href: "malito:andre.c.dias2000@gmail.com" },
 ];
 
 export function HeroActions() {

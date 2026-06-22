@@ -2,7 +2,7 @@
     position: sticky;
     top: 0;
     z-index: 50;
-    border-bottom: var(--color-secondary);
+    border-bottom: var(--color-bg);
     border-bottom-width: 1px;
     border-bottom-style: solid;
     background-color: var(--color-bg-secondary);
@@ -17,7 +17,7 @@
     justify-content: space-between;
     width: min(1120px, calc(100% - 32px));
     max-width: 72rem;
-    height: calc(0.25rem * 20);
+    height: calc(0.25rem * 15);
 }
 
 .theme-toggle-button {
@@ -28,7 +28,7 @@
     border-radius: calc(infinity * 1px);
     border-width: 1px;
     border-style: solid;
-    border-color: var(--color-button-border);
+    border-color: var(--color-button-border-hover);
     color: var(--color-text);
 }
 
