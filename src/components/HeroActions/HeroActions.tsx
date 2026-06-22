@@ -8,7 +8,7 @@ import "@/components/HeroActions/HeroActions.css";
 const heroActions = [
     { label: "Github", icon: FaGithub, href: "https://www.github.com/andredias20" },
     { label: "LinkedIn", icon: FaLinkedin, href: "https://www.linkedin.com/in/andredias20" },
-    { label: "Currículo", icon:  FileText, href: "https://www.andredcdias.com.br/curriculo" },
+    { label: "Currículo", icon:  FileText, href: "/curriculum" },
     { label: "Contato", icon: Mail, href: "malito:andre.c.dias2000@gmail.com" },
 ];
 

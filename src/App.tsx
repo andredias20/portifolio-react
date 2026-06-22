@@ -1,14 +1,13 @@
-import Header from "@/components/Header/Header.tsx";
-import HeroSection from "@/components/HeroSection/HeroSection.tsx";
-import UnderConstruction from "@/components/UnderConstruction/UnderConstruction.tsx";
+import {Route, Routes} from "react-router-dom";
+import HomePage from "@/pages/HomePage/Homepage";
+import CurriculumPage from "@/pages/CurriculumPage/CurriculumPage";
 
 function App() {
   return (
-    <main>
-        <Header/>
-        <HeroSection/>
-        <UnderConstruction/>
-    </main>
+      <Routes>
+          <Route path="/" element={<HomePage/>} />
+          <Route path="/curriculum" element={<CurriculumPage/>} />
+      </Routes>
   );
 }
 
