@@ -104,3 +104,34 @@ Próximas etapas planejadas:
 ## Licença
 
 Projeto pessoal. O conteúdo, identidade visual e dados profissionais pertencem a André de Carli Dias.
+
+## Portfolio architecture
+
+- `src/portfolio/content.ts`: navigation, shared bilingual content and life skills.
+- `src/portfolio/projects.ts`: typed automatic project discovery.
+- `src/personal-projects/`: independent project folders and detail pages; see its README.
+- `src/portfolio/portfolio.css`: responsive visual system.
+- `src/App.tsx`: application shell, language preference and page routes.
+- `src/portfolio/pages/`: six independent page modules.
+- `src/portfolio/ProjectCards.tsx` and `PageHeading.tsx`: shared presentation components.
+
+Routes: `/`, `/about`, `/projects`, `/projects/:slug`, `/articles`, `/setup`, `/life`.
+The language switch persists locally. Articles and hardware specifications await real content.
+For production hosting, configure an SPA fallback to `index.html` so direct page URLs work.
+
+Run `npm install`, `npm run dev`; validate with `npm run build` and `npm run lint`.
+
+### Personal profile content
+
+- `src/portfolio/career.ts`: seven work experiences, bilingual descriptions, dates, technologies and courses, curated from the supplied profile JSONs.
+- `src/portfolio/CareerSection.tsx`: reusable timeline (compact disclosures on Home, full descriptions on About).
+- `src/portfolio/LearningSection.tsx`: education, English and courses. Graduation is in progress, expected H2 2027; no CEFR equivalence is inferred.
+- `src/portfolio/interests.ts`: bilingual personal stories, expanded independently from professional experience.
+
+Add future courses to `courses` with a stable ID and PT/EN title. The supplied files do not specify a computing course, its institution or dates; add that entry once the details are available. Certificate issuers, dates and credential URLs are not inferred. The Sicredi automation count describes an existing portfolio, not sole authorship. Career achievement figures retain the approximate, self-reported scope of the supplied records.
+
+### Music demo
+
+`src/portfolio/MusicSection.tsx` embeds the supplied Spotify playlist on Home and Life, with a direct-link fallback. The now-playing panel is explicitly a demo; it makes no authenticated API calls and does not claim any track is currently playing. A live integration will require server-side authorization/token storage. The playlist ID can be changed in this shared component.
+
+The site favicon lives in `public/favicon.svg` and follows the dark/green visual identity.
