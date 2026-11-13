@@ -1,3 +1,6 @@
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { Expand, X } from "lucide-react";
 import setup from "../assets/photos/setup.webp";
 import hardware from "../assets/photos/hardware.webp";
 import bike from "../assets/photos/bike.webp";
@@ -80,23 +83,104 @@ export function PersonalPhoto({
   photo,
   language,
   className = "",
+  interactive = true,
+  onPhotoClick,
 }: {
   photo: keyof typeof photos;
   language: Language;
   className?: string;
+  interactive?: boolean;
+  onPhotoClick?: () => boolean | void;
 }) {
   const image = photos[photo];
+  const [expanded, setExpanded] = useState(false);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const t = (pt: string, en: string) => (language === "pt" ? pt : en);
+  useEffect(() => {
+    if (!expanded) return;
+    const dialog = dialogRef.current;
+    const trigger = triggerRef.current;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    dialog?.showModal();
+    return () => {
+      dialog?.close();
+      document.body.style.overflow = previousOverflow;
+      trigger?.focus({ preventScroll: true });
+    };
+  }, [expanded]);
   return (
-    <figure className={`personal-photo photo-${photo} ${className}`}>
-      <img
-        src={image.src}
-        alt={image.alt[language]}
-        width={image.width}
-        height={image.height}
-        loading="lazy"
-        decoding="async"
-      />
-      <figcaption>{image.caption[language]}</figcaption>
-    </figure>
+    <>
+      <figure className={`personal-photo photo-${photo} ${className}`}>
+        <button
+          ref={triggerRef}
+          className="photo-expand"
+          type="button"
+          disabled={!interactive}
+          onClick={() => {
+            if (!onPhotoClick?.()) setExpanded(true);
+          }}
+          aria-label={`${t("Ampliar foto", "Expand photo")}: ${image.alt[language]}`}
+          aria-haspopup="dialog"
+        >
+          <img
+            src={image.src}
+            alt={image.alt[language]}
+            width={image.width}
+            height={image.height}
+            loading="lazy"
+            decoding="async"
+          />
+          <span className="photo-expand-hint">
+            <Expand size={15} aria-hidden="true" />
+            {t("Ampliar", "Expand")}
+          </span>
+        </button>
+        <figcaption>{image.caption[language]}</figcaption>
+      </figure>
+      {expanded &&
+        createPortal(
+          <dialog
+            ref={dialogRef}
+            className="photo-dialog"
+            aria-label={image.alt[language]}
+            onCancel={() => setExpanded(false)}
+            onClose={() => setExpanded(false)}
+            onClick={(event) => {
+              if (event.target === event.currentTarget) setExpanded(false);
+            }}
+          >
+            <div className="photo-dialog-content">
+              <button
+                className="photo-dialog-close"
+                type="button"
+                autoFocus
+                onClick={() => setExpanded(false)}
+                aria-label={t("Fechar foto", "Close photo")}
+              >
+                <X size={22} />
+              </button>
+              <button
+                className="expanded-photo-button"
+                type="button"
+                aria-label={image.alt[language]}
+                onClick={() => {
+                  if (onPhotoClick?.()) setExpanded(false);
+                }}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt[language]}
+                  width={image.width}
+                  height={image.height}
+                />
+              </button>
+              <p>{image.caption[language]}</p>
+            </div>
+          </dialog>,
+          document.body,
+        )}
+    </>
   );
 }

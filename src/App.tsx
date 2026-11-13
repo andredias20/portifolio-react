@@ -1,3 +1,4 @@
+import { PageFlow } from "./portfolio/PageFlow";
 import { heading } from "./portfolio/PageHeading";
 import HomePage from "./portfolio/pages/HomePage";
 import AboutPage from "./portfolio/pages/AboutPage";
@@ -155,6 +156,7 @@ export default function App() {
             }
           />
         </Routes>
+        <PageFlow language={language} />
       </main>
       <footer>
         <Link className="brand" to="/">

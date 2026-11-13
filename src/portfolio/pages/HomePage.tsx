@@ -27,8 +27,8 @@ export default function HomePage({ language }: { language: Language }) {
             )}
           </p>
           <div className="actions">
-            <Link className="button primary" to="/about#experience">
-              {t("Conheça minha trajetória", "Explore my journey")}
+            <Link className="button primary" to="/about">
+              {t("Sobre mim", "About me")}
               <ArrowUpRight size={18} />
             </Link>
             <Link className="text-link" to="/life">
