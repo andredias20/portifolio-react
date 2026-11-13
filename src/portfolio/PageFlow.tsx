@@ -1,13 +1,13 @@
 import { ArrowRight } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import { navigation, type Language } from "./content";
+import { navigation, pagePaths, type Language } from "./content";
 
 export function PageFlow({ language }: { language: Language }) {
   const { pathname } = useLocation();
   const currentIndex = navigation.findIndex(([path]) => path === pathname);
   const isProject = pathname.startsWith("/projects/");
   const next = isProject
-    ? navigation[2]
+    ? navigation.find(([path]) => path === pagePaths.projects)
     : currentIndex >= 0
       ? navigation[(currentIndex + 1) % navigation.length]
       : null;

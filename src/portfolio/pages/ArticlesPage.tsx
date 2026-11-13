@@ -1,7 +1,6 @@
 import type { Language } from "../content";
 import { heading } from "../PageHeading";
-import { Terminal } from "lucide-react";
-
+import { articles } from "../articles";
 export default function ArticlesPage({ language }: { language: Language }) {
   const t = (pt: string, en: string) => (language === "pt" ? pt : en);
   return (
@@ -10,23 +9,22 @@ export default function ArticlesPage({ language }: { language: Language }) {
         t("03 / DIÁRIO", "03 / LOGBOOK"),
         t("Notas de construção.", "Building notes."),
         t(
-          "Código, descobertas e ideias para compartilhar.",
-          "Code, discoveries and ideas to share.",
+          "Código, descobertas e decisões compartilhadas.",
+          "Code, discoveries and shared decisions.",
         ),
       )}
-      <div className="empty-state">
-        <Terminal />
-        <h2>{t("Primeiro artigo em breve.", "First article coming soon.")}</h2>
-        <p>
-          {t(
-            "Este espaço vai reunir aprendizados sobre desenvolvimento, hardware e IA.",
-            "This space will collect lessons on development, hardware and AI.",
-          )}
-        </p>
-        <span className="eyebrow">
-          {t("ESTADO: RASCUNHO_", "STATUS: DRAFT_")}
-        </span>
-      </div>
+      {articles.map((article) => (
+        <article className="technical-article" id={article.id} key={article.id}>
+          <h2>{article.title[language]}</h2>
+          <p className="section-intro">{article.introduction[language]}</p>
+          {article.sections.map((section, index) => (
+            <section key={index}>
+              <h3>{section.title[language]}</h3>
+              <p>{section.body[language]}</p>
+            </section>
+          ))}
+        </article>
+      ))}
     </>
   );
 }

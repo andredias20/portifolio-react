@@ -7,12 +7,17 @@ export interface CareerExperience {
   start: string;
   end: string | null;
   description: Localized;
+  highlight: Localized;
   tags: (string | Localized)[];
 }
 
 export const experiences: CareerExperience[] = [
   {
     id: "sicredi",
+    highlight: {
+      pt: "Atuação em um conjunto existente de cerca de 90 automações em Python, com orquestração via Prefect.",
+      en: "Work on an existing set of around 90 Python automations, orchestrated with Prefect.",
+    },
     company: "Sicredi",
     title: {
       pt: "Analista de Desenvolvimento",
@@ -35,6 +40,10 @@ export const experiences: CareerExperience[] = [
   },
   {
     id: "grownt",
+    highlight: {
+      pt: "Evolução de um sistema corporativo: regras de negócio, APIs, consultas e relatórios com C# e ASP.NET Core.",
+      en: "Evolving a corporate system: business rules, APIs, queries and reports with C# and ASP.NET Core.",
+    },
     company: "Grownt",
     title: {
       pt: "Desenvolvedor de aplicações e sistemas",
@@ -57,6 +66,10 @@ export const experiences: CareerExperience[] = [
   },
   {
     id: "giro-tech",
+    highlight: {
+      pt: "Imagens Docker de cerca de 1 GB para 200 MB com compilação em múltiplas etapas.",
+      en: "Docker images reduced from about 1 GB to 200 MB with multi-stage builds.",
+    },
     company: "Giro.Tech",
     title: {
       pt: "Desenvolvedor de aplicações e sistemas",
@@ -81,6 +94,10 @@ export const experiences: CareerExperience[] = [
   },
   {
     id: "maker",
+    highlight: {
+      pt: "Consulta crítica de cerca de cinco minutos para cinco segundos com índices compostos em PostgreSQL.",
+      en: "A critical query reduced from about five minutes to five seconds with composite PostgreSQL indexes.",
+    },
     company: "Maker Soluções Tecnológicas",
     title: {
       pt: "Desenvolvedor de software",
@@ -104,6 +121,10 @@ export const experiences: CareerExperience[] = [
   },
   {
     id: "inside-infra",
+    highlight: {
+      pt: "Instalações em Windows Server e SQL Server, com automações em Python e Batch.",
+      en: "Windows Server and SQL Server deployments, with Python and Batch automation.",
+    },
     company: "Inside Sistemas",
     title: {
       pt: "Assistente de infraestrutura",
@@ -126,6 +147,10 @@ export const experiences: CareerExperience[] = [
   },
   {
     id: "inside-helpdesk",
+    highlight: {
+      pt: "Suporte a ERP, auditoria com SQL e documentação para clientes e equipe.",
+      en: "ERP support, SQL audits and documentation for customers and teammates.",
+    },
     company: "Inside Sistemas",
     title: {
       pt: "Analista de suporte técnico",
@@ -146,6 +171,10 @@ export const experiences: CareerExperience[] = [
   },
   {
     id: "german-tech",
+    highlight: {
+      pt: "Resolução de problemas técnicos e levantamento de requisitos junto aos clientes.",
+      en: "Technical troubleshooting and requirements gathering with customers.",
+    },
     company: "German Tech Sistemas",
     title: {
       pt: "Analista de suporte técnico",

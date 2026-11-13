@@ -1,0 +1,309 @@
+:where(.portfolio-page, .site-header, .site-footer, .page-flow, .photo-dialog)
+  a {
+  color: inherit;
+  text-decoration: none;
+}
+:where(.portfolio-page, .site-header, .site-footer, .page-flow, .photo-dialog)
+  button {
+  font: inherit;
+  cursor: pointer;
+}
+:where(.portfolio-page, .site-header, .site-footer, .page-flow, .photo-dialog)
+  button,
+:where(.portfolio-page, .site-header, .site-footer, .page-flow, .photo-dialog)
+  a {
+  -webkit-tap-highlight-color: transparent;
+}
+:where(.portfolio-page, .site-header, .site-footer, .page-flow, .photo-dialog)
+  a:focus-visible,
+:where(.portfolio-page, .site-header, .site-footer, .page-flow, .photo-dialog)
+  button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
+}
+.personal-photo {
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+}
+.personal-photo img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.personal-photo figcaption {
+  padding: 10px 12px;
+  font: 12px/1.6 monospace;
+  color: #b4bfae;
+}
+.photo-setup img {
+  object-position: 48% 60%;
+}
+.photo-bike img {
+  object-position: 50% 65%;
+}
+.photo-gym img {
+  object-position: 65% 35%;
+}
+.photo-hardware img {
+  object-position: 50% 45%;
+}
+.photo-server img {
+  object-position: 42% 50%;
+}
+.story-content > .personal-photo {
+  width: 100%;
+  max-width: 360px;
+  margin-top: 10px;
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  transform: rotate(2deg);
+}
+.story-content:has(> .personal-photo) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+  column-gap: 28px;
+  align-items: start;
+}
+.story-content:has(> .personal-photo) > h2,
+.story-content:has(> .personal-photo) > p {
+  grid-column: 1;
+}
+.story-content > .photo-gym {
+  transform: rotate(-2deg);
+}
+.story-content > .personal-photo img {
+  height: 270px;
+}
+.workspace-photos {
+  min-width: 0;
+}
+.photo-controls {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.photo-controls button {
+  border: 1px solid #3a4233;
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--muted);
+  font: 12px monospace;
+  padding: 9px 14px;
+}
+.photo-controls button[aria-pressed="true"] {
+  color: var(--accent);
+  border-color: #7b9d55;
+  background: #232e1b;
+}
+.photo-layers {
+  position: relative;
+  height: 435px;
+  isolation: isolate;
+}
+.photo-layer {
+  position: absolute;
+  width: 86%;
+  left: 7%;
+  top: 25px;
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
+  opacity: 0.28;
+  z-index: 0;
+  pointer-events: none;
+}
+.photo-layer .personal-photo {
+  box-shadow: 0 12px 28px #0005;
+}
+.photo-layer .personal-photo img {
+  height: 290px;
+}
+.photo-layer .personal-photo figcaption {
+  min-height: 65px;
+  background: var(--surface);
+}
+.layer-setup {
+  transform: translate(-27px, -5px) rotate(-8deg);
+}
+.layer-hardware {
+  transform: translate(30px, 12px) rotate(8deg);
+}
+.layer-server {
+  transform: translate(0, 33px) rotate(-3deg);
+}
+.photo-layer.is-active {
+  opacity: 1;
+  z-index: 2;
+  transform: translate(0, 0) rotate(-1deg);
+  pointer-events: auto;
+}
+.photo-expand {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  cursor: zoom-in;
+}
+.photo-expand:disabled {
+  cursor: default;
+}
+.photo-expand-hint {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px;
+  border-radius: 4px;
+  background: var(--background) dc;
+  font: 12px monospace;
+}
+.photo-expand:focus-visible {
+  outline-offset: -4px;
+}
+.photo-dialog {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 32px;
+  border: 0;
+  background: transparent;
+  color: var(--foreground);
+}
+.photo-dialog[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.photo-dialog::backdrop {
+  background: #070907ed;
+  backdrop-filter: blur(8px);
+}
+.photo-dialog-content {
+  position: relative;
+  max-width: 1200px;
+  width: fit-content;
+  padding-top: 44px;
+}
+.photo-dialog-content > img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(100dvh - 170px);
+  object-fit: contain;
+  border-radius: 5px;
+  margin: auto;
+}
+.photo-dialog-content > p {
+  max-width: 800px;
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: center;
+  margin: 14px auto 0;
+}
+.photo-dialog-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  padding: 8px;
+  border: 1px solid #475c34;
+  border-radius: 50%;
+  background: #1b2118;
+  color: var(--accent);
+}
+.expanded-photo-button {
+  display: block;
+  padding: 0;
+  margin: auto;
+  border: 0;
+  background: transparent;
+  max-width: 100%;
+  cursor: pointer;
+}
+.expanded-photo-button img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(100dvh - 190px);
+  object-fit: contain;
+  border-radius: 5px;
+}
+@media (max-width: 760px) {
+  .setup-overview > .personal-photo {
+    max-width: 320px;
+  }
+}
+@media (max-width: 600px) {
+  .personal-photo figcaption {
+    font-size: 12px;
+  }
+}
+@media (max-width: 900px) {
+  .story-content:has(> .personal-photo) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .story-content > .personal-photo {
+    grid-column: 1;
+    grid-row: auto;
+    margin-top: 16px;
+    transform: none;
+    max-width: 420px;
+  }
+  .workspace-photos {
+    max-width: 560px;
+    width: 100%;
+    margin-inline: auto;
+  }
+}
+@media (max-width: 420px) {
+  .photo-layer {
+    width: 82%;
+    left: 9%;
+  }
+  .photo-layer .personal-photo img {
+    height: 225px;
+  }
+  .photo-layers {
+    height: 380px;
+  }
+  .layer-setup {
+    transform: translate(-16px, -3px) rotate(-5deg);
+  }
+  .layer-hardware {
+    transform: translate(16px, 10px) rotate(6deg);
+  }
+  .photo-layer.is-active {
+    transform: none;
+  }
+  .photo-controls {
+    justify-content: center;
+  }
+  .photo-layer .personal-photo figcaption {
+    min-height: 85px;
+  }
+  .story-content > .personal-photo img {
+    height: 240px;
+  }
+  .photo-dialog {
+    padding: 16px;
+  }
+  .photo-dialog-content > img {
+    max-height: calc(100dvh - 190px);
+  }
+}

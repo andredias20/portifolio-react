@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 360" fill="none">
+  <rect width="880" height="360" rx="16" fill="#161a15"/>
+  <g stroke="#536a3e" stroke-width="2"><rect x="35" y="122" width="225" height="116" rx="8"/><rect x="330" y="40" width="225" height="110" rx="8"/><rect x="330" y="210" width="225" height="110" rx="8"/><rect x="625" y="122" width="220" height="116" rx="8"/><path d="M260 180h35V95h35m-35 85v85h35m225-170h35v85h35m-70 85h35v-85"/></g>
+  <g font-family="monospace" font-size="20" text-anchor="middle" fill="#e8e9e7"><text x="147" y="172">personal-projects/</text><text x="147" y="203" fill="#c5f879">metadata.ts</text><text x="442" y="87">/projects</text><text x="442" y="117" fill="#c5f879">React Router</text><text x="442" y="258">import.meta.glob</text><text x="442" y="288" fill="#c5f879">React.lazy</text><text x="735" y="174">Page.tsx</text><text x="735" y="205" fill="#c5f879">React + TypeScript</text></g>
+</svg>

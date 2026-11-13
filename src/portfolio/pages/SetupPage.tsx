@@ -1,3 +1,4 @@
+import { messages } from "../messages/setup";
 import { trackEvent } from "../../analytics/events";
 import { useRef, useState } from "react";
 import { getQuitMessage, shouldCrashServer } from "../easterEggs";
@@ -28,16 +29,12 @@ export default function SetupPage({ language }: { language: Language }) {
     setCommand("");
     setReply("");
   };
-  const t = (pt: string, en: string) => (language === "pt" ? pt : en);
   return (
     <>
       {heading(
-        t("04 / AMBIENTE", "04 / WORKSPACE"),
-        t("Meu canto de criar.", "My corner for creating."),
-        t(
-          "A mesa, a máquina e as ferramentas que uso.",
-          "The desk, machine and tools I use.",
-        ),
+        messages.workspace[language],
+        messages.myCornerForCreating[language],
+        messages.theDeskMachineAndToolsI[language],
       )}
       <div className="setup-overview">
         <WorkspacePhotos
@@ -47,34 +44,24 @@ export default function SetupPage({ language }: { language: Language }) {
         {crashed ? (
           <section
             className="blue-screen"
-            aria-label={t("Tela azul do servidor", "Server blue screen")}
+            aria-label={messages.serverBlueScreen[language]}
           >
             <div className="blue-screen-face" aria-hidden="true">
               :(
             </div>
-            <h2>
-              {t(
-                "Seu servidor encontrou um problema e precisa ser reiniciado.",
-                "Your server ran into a problem and needs to restart.",
-              )}
-            </h2>
-            <p>
-              {t(
-                "Você cutucou o servidor mais de 10 vezes. Até carro velho tem limite.",
-                "You poked the server more than 10 times. Even an old car has its limits.",
-              )}
-            </p>
-            <p>{t("100% concluído", "100% complete")}</p>
-            <small>{t("Código de parada", "Stop code")}: TOO_MANY_PINGS</small>
+            <h2>{messages.yourServerRanIntoAProblem[language]}</h2>
+            <p>{messages.youPokedTheServerMoreThan[language]}</p>
+            <p>{messages.complete[language]}</p>
+            <small>{messages.stopCode[language]}: TOO_MANY_PINGS</small>
             <button type="button" className="restart-button" onClick={restart}>
-              {t("Reiniciar", "Restart")} ↻
+              {messages.restart[language]} ↻
             </button>
           </section>
         ) : (
           <div className="terminal">
             <div className="terminal-bar">
               <span className="dots">● ● ●</span>
-              <span>andre@{t("ambiente", "workspace")}: ~</span>
+              <span>andre@{messages.workspace2[language]}: ~</span>
               <Terminal size={14} />
             </div>
             <div className="terminal-content">
@@ -85,37 +72,27 @@ export default function SetupPage({ language }: { language: Language }) {
                 André Dias<span className="cursor">_</span>
               </h2>
               <p className="muted">
-                {t(
-                  "Desenvolvedor de aplicações e sistemas",
-                  "Full Stack / Backend Developer",
-                )}
+                {messages.fullStackBackendDeveloper[language]}
               </p>
               <div className="terminal-rule" />
               <p>
-                <em>➜</em> <span>~</span> cat{" "}
-                {t("interesses.conf", "interests.conf")}
+                <em>➜</em> <span>~</span> cat {messages.interestsConf[language]}
               </p>
               <dl>
                 <dt>editor</dt>
-                <dd>VS Code / {t("IDEs da JetBrains", "JetBrains IDEs")}</dd>
-                <dt>{t("sistema", "os")}</dt>
+                <dd>VS Code / {messages.jetbrainsIdes[language]}</dd>
+                <dt>{messages.os[language]}</dt>
                 <dd>
                   Arch Linux
                   <small className="hardware-aside">
-                    {t(
-                      "// Ah, é uma distribuição Omarchy, aliás",
-                      "// Oh, an Omarchy distro, btw",
-                    )}
+                    {messages.ohAnOmarchyDistroBtw[language]}
                   </small>
                 </dd>
-                <dt>{t("máquina", "hardware")}</dt>
+                <dt>{messages.hardware[language]}</dt>
                 <dd>
                   Ryzen 5 5600G / 32GB RAM / RX 7600
                   <small className="hardware-aside">
-                    {t(
-                      "// eu sei, eu sei… uma metralhadora montada numa bike.",
-                      "// I know, I know… a machine gun mounted on a bike.",
-                    )}
+                    {messages.iKnowIKnowAMachine[language]}
                   </small>
                 </dd>
               </dl>
@@ -136,22 +113,16 @@ export default function SetupPage({ language }: { language: Language }) {
                   if (value === ":wq") setReply(getQuitMessage(language));
                   else if (value === "sudo")
                     setReply(
-                      t(
-                        "Com grandes permissões vêm grandes boletos.",
-                        "With great permissions come great bills.",
-                      ),
+                      messages.withGreatPermissionsComeGreatBills[language],
                     );
-                  else
-                    setReply(
-                      t("Comando não encontrado.", "Command not found."),
-                    );
+                  else setReply(messages.commandNotFound[language]);
                   setCommand("");
                 }}
               >
                 <label htmlFor="terminal-command-input">
                   <em>➜</em> ~{" "}
                   <span className="sr-only">
-                    {t("Comando do terminal", "Terminal command")}
+                    {messages.terminalCommand[language]}
                   </span>
                 </label>
                 <input
@@ -164,7 +135,7 @@ export default function SetupPage({ language }: { language: Language }) {
                 />
                 <button
                   type="submit"
-                  aria-label={t("Executar comando", "Run command")}
+                  aria-label={messages.runCommand[language]}
                 >
                   ↵
                 </button>
@@ -175,7 +146,7 @@ export default function SetupPage({ language }: { language: Language }) {
             </div>
             <div className="terminal-footer">
               <span>VS CODE</span>
-              <span>{t("interesses.conf", "interests.conf")}</span>
+              <span>{messages.interestsConf[language]}</span>
               <span>utf-8 ↗ 100%</span>
             </div>
           </div>

@@ -1,3 +1,4 @@
+import { messages } from "./messages/personalPhoto";
 import { trackEvent } from "../analytics/events";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
@@ -97,7 +98,6 @@ export function PersonalPhoto({
   const [expanded, setExpanded] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
-  const t = (pt: string, en: string) => (language === "pt" ? pt : en);
   useEffect(() => {
     if (!expanded) return;
     const openedAt = performance.now();
@@ -128,7 +128,7 @@ export function PersonalPhoto({
           onClick={() => {
             if (!onPhotoClick?.()) setExpanded(true);
           }}
-          aria-label={`${t("Ampliar foto", "Expand photo")}: ${image.alt[language]}`}
+          aria-label={`${messages.expandPhoto[language]}: ${image.alt[language]}`}
           aria-haspopup="dialog"
         >
           <img
@@ -141,7 +141,7 @@ export function PersonalPhoto({
           />
           <span className="photo-expand-hint">
             <Expand size={15} aria-hidden="true" />
-            {t("Ampliar", "Expand")}
+            {messages.expand[language]}
           </span>
         </button>
         <figcaption>{image.caption[language]}</figcaption>
@@ -152,6 +152,22 @@ export function PersonalPhoto({
             ref={dialogRef}
             className="photo-dialog"
             aria-label={image.alt[language]}
+            onKeyDown={(event) => {
+              if (event.key !== "Tab") return;
+              const controls =
+                event.currentTarget.querySelectorAll<HTMLButtonElement>(
+                  "button:not(:disabled)",
+                );
+              const first = controls[0];
+              const last = controls[controls.length - 1];
+              if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last?.focus();
+              } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first?.focus();
+              }
+            }}
             onCancel={() => setExpanded(false)}
             onClose={() => setExpanded(false)}
             onClick={(event) => {
@@ -164,7 +180,7 @@ export function PersonalPhoto({
                 type="button"
                 autoFocus
                 onClick={() => setExpanded(false)}
-                aria-label={t("Fechar foto", "Close photo")}
+                aria-label={messages.closePhoto[language]}
               >
                 <X size={22} />
               </button>

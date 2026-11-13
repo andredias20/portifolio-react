@@ -7,7 +7,7 @@ import ProjectsPage from "./portfolio/pages/ProjectsPage";
 import ArticlesPage from "./portfolio/pages/ArticlesPage";
 import SetupPage from "./portfolio/pages/SetupPage";
 import LifePage from "./portfolio/pages/LifePage";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import {
   Link,
   NavLink,
@@ -17,7 +17,11 @@ import {
   useLocation,
 } from "react-router-dom";
 import { ArrowRight, Menu, X } from "lucide-react";
-import { navigation, type Language } from "./portfolio/content";
+import {
+  navigation,
+  professionalLinks,
+  type Language,
+} from "./portfolio/content";
 import { projects } from "./portfolio/projects";
 import "./portfolio/portfolio.css";
 
@@ -56,7 +60,7 @@ export default function App() {
       <a className="skip-link" href="#main">
         {t("Ir para conteúdo", "Skip to content")}
       </a>
-      <header>
+      <header className="site-header">
         <Link to="/" className="brand">
           <span className="brand-mark">
             a<span>.</span>
@@ -79,7 +83,10 @@ export default function App() {
         >
           {menuOpen ? <X /> : <Menu />}
         </button>
-        <nav className={menuOpen ? "open" : ""}>
+        <nav
+          className={`site-nav${menuOpen ? " open" : ""}`}
+          aria-label={t("Navegação principal", "Main navigation")}
+        >
           {navigation.map(([path, pt, en]) => (
             <NavLink
               end
@@ -111,7 +118,11 @@ export default function App() {
           )}
         </button>
       </header>
-      <main id="main" key={location.pathname}>
+      <main
+        id="main"
+        className={`site-main${location.pathname.startsWith("/projects/") ? "" : " portfolio-page"}`}
+        key={location.pathname}
+      >
         <Routes>
           <Route path="/" element={<HomePage language={language} />} />
           <Route path="/about" element={<AboutPage language={language} />} />
@@ -133,7 +144,15 @@ export default function App() {
                     project.title[language],
                     project.description[language],
                   )}
-                  <project.Page language={language} />
+                  <Suspense
+                    fallback={
+                      <p role="status">
+                        {t("Carregando projeto…", "Loading project…")}
+                      </p>
+                    }
+                  >
+                    <project.Page language={language} />
+                  </Suspense>
                 </>
               }
             />
@@ -166,7 +185,7 @@ export default function App() {
         </Routes>
         <PageFlow language={language} />
       </main>
-      <footer>
+      <footer className="site-footer">
         <Link className="brand" to="/">
           andré<span className="accent">.dias</span>
         </Link>
@@ -179,6 +198,18 @@ export default function App() {
         <span>
           © {new Date().getFullYear()} / {t("FIM DO ARQUIVO_", "END OF FILE_")}
         </span>
+        <div className="footer-links">
+          {professionalLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
       </footer>
     </>
   );
