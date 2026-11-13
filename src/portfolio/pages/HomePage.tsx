@@ -17,8 +17,6 @@ export default function HomePage({ language }: { language: Language }) {
           </span>
           <h1>
             {t("Oi, eu sou o André.", "Hi, I’m André.")}
-            <br />
-            <span>{t("Curioso por natureza.", "Curious by nature.")}</span>
           </h1>
           <p>
             {t(

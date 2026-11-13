@@ -1,3 +1,4 @@
+import { trackEvent } from "../analytics/events";
 import { useState } from "react";
 import { PersonalPhoto } from "./PersonalPhoto";
 import type { Language } from "./content";
@@ -28,7 +29,11 @@ export function WorkspacePhotos({
             key={layer.photo}
             type="button"
             aria-pressed={activePhoto === layer.photo}
-            onClick={() => setActivePhoto(layer.photo)}
+            onClick={() => {
+              if (activePhoto !== layer.photo)
+                trackEvent("workspace_photo_select", { photo: layer.photo });
+              setActivePhoto(layer.photo);
+            }}
           >
             {layer[language]}
           </button>

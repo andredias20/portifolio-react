@@ -1,3 +1,4 @@
+import { trackEvent } from "../../analytics/events";
 import { useRef, useState } from "react";
 import { getQuitMessage, shouldCrashServer } from "../easterEggs";
 import { Terminal } from "lucide-react";
@@ -14,12 +15,14 @@ export default function SetupPage({ language }: { language: Language }) {
     if (crashed) return true;
     serverClicks.current += 1;
     if (shouldCrashServer(serverClicks.current)) {
+      trackEvent("easter_egg", { egg: "blue_screen" });
       setCrashed(true);
       return true;
     }
     return false;
   };
   const restart = () => {
+    trackEvent("terminal_restart");
     serverClicks.current = 0;
     setCrashed(false);
     setCommand("");
@@ -122,6 +125,14 @@ export default function SetupPage({ language }: { language: Language }) {
                   event.preventDefault();
                   if (handleServerClick()) return;
                   const value = command.trim();
+                  trackEvent("terminal_command", {
+                    command:
+                      value === ":wq" || value === "sudo" ? value : "unknown",
+                  });
+                  if (value === ":wq" || value === "sudo")
+                    trackEvent("easter_egg", {
+                      egg: value === ":wq" ? "quit" : "sudo",
+                    });
                   if (value === ":wq") setReply(getQuitMessage(language));
                   else if (value === "sudo")
                     setReply(

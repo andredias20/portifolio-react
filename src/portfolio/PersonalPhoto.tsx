@@ -1,3 +1,4 @@
+import { trackEvent } from "../analytics/events";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Expand, X } from "lucide-react";
@@ -99,17 +100,23 @@ export function PersonalPhoto({
   const t = (pt: string, en: string) => (language === "pt" ? pt : en);
   useEffect(() => {
     if (!expanded) return;
+    const openedAt = performance.now();
     const dialog = dialogRef.current;
     const trigger = triggerRef.current;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     dialog?.showModal();
+    trackEvent("photo_expand", { photo });
     return () => {
+      trackEvent("photo_close", {
+        photo,
+        duration_seconds: Math.round((performance.now() - openedAt) / 1000),
+      });
       dialog?.close();
       document.body.style.overflow = previousOverflow;
       trigger?.focus({ preventScroll: true });
     };
-  }, [expanded]);
+  }, [expanded, photo]);
   return (
     <>
       <figure className={`personal-photo photo-${photo} ${className}`}>

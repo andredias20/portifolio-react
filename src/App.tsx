@@ -1,3 +1,4 @@
+import { trackEvent } from "./analytics/events";
 import { PageFlow } from "./portfolio/PageFlow";
 import { heading } from "./portfolio/PageHeading";
 import HomePage from "./portfolio/pages/HomePage";
@@ -71,7 +72,10 @@ export default function App() {
           className="menu-button"
           aria-label={t("Alternar menu", "Toggle menu")}
           aria-expanded={menuOpen}
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={() => {
+            trackEvent("menu_toggle", { expanded: !menuOpen });
+            setMenuOpen(!menuOpen);
+          }}
         >
           {menuOpen ? <X /> : <Menu />}
         </button>
@@ -89,7 +93,11 @@ export default function App() {
         </nav>
         <button
           className="language"
-          onClick={() => setLanguage(language === "pt" ? "en" : "pt")}
+          onClick={() => {
+            const nextLanguage = language === "pt" ? "en" : "pt";
+            trackEvent("language_change", { selected_language: nextLanguage });
+            setLanguage(nextLanguage);
+          }}
           aria-label={t("Mudar para inglês", "Switch to Portuguese")}
         >
           {language === "pt" ? (
