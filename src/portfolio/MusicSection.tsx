@@ -2,7 +2,7 @@ import { messages } from "./messages/musicSection";
 import { ArrowUpRight, Music2 } from "lucide-react";
 import type { Language } from "./content";
 
-const playlistId = "78tWiw6HY9ppzYlCDYwooz";
+const playlistId = "36sCIpCd8CzPH6RFac6Oxa";
 const playlistUrl = `https://open.spotify.com/playlist/${playlistId}`;
 
 export function MusicSection({ language }: { language: Language }) {
