@@ -43,8 +43,8 @@ export const experiences: CareerExperience[] = [
     start: "2025-09",
     end: "2026-09",
     description: {
-      pt: "Atuei no desenvolvimento e na manutenção evolutiva de um sistema web corporativo com C#, ASP.NET Core, Entity Framework Core e Oracle Database. Desenvolvi funcionalidades entre interfaces Razor, APIs REST e persistência, em arquitetura em camadas. Trabalhei na evolução de regras de negócio e modelos de dados, na otimização de consultas e na implementação de filtros e relatórios consistentes, preservando contratos legados e regras de acesso. Também desenvolvi relatórios em Excel e PDF e realizei a manutenção de processos em segundo plano com Hangfire.",
-      en: "I developed and maintained a corporate web system with C#, ASP.NET Core, Entity Framework Core and Oracle. My work covered Razor interfaces, REST APIs, business rules, data models and query optimization while preserving legacy contracts and access rules. I built Excel/PDF reports and maintained background jobs with Hangfire.",
+      pt: "Atuei no desenvolvimento e na manutenção evolutiva de um sistema web corporativo com C#, ASP.NET Core, Entity Framework Core e Oracle Database. Desenvolvi funcionalidades entre interfaces Razor, APIs REST e persistência, em arquitetura em camadas. Trabalhei na evolução de regras de negócio e modelos de dados, na otimização de consultas e na implementação de filtros e relatórios consistentes, preservando contratos legados e regras de acesso. Também desenvolvi relatórios em Excel e PDF e realizei a manutenção de processos em segundo plano com Hangfire. Usei IA para acelerar entregas mais triviais e padronizar implementações.",
+      en: "I developed and maintained a corporate web system with C#, ASP.NET Core, Entity Framework Core and Oracle. My work covered Razor interfaces, REST APIs, business rules, data models and query optimization while preserving legacy contracts and access rules. I built Excel/PDF reports and maintained background jobs with Hangfire. I also used AI to speed up simpler deliveries and standardize implementations.",
     },
     tags: [
       "C#",

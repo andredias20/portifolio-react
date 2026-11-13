@@ -782,3 +782,146 @@ footer > span {
     gap: 28px;
   }
 }
+
+.personal-photo {
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #30362c;
+  border-radius: 6px;
+  background: #161a15;
+}
+.personal-photo img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.personal-photo figcaption {
+  padding: 10px 12px;
+  font: 11px/1.6 monospace;
+  color: #b4bfae;
+}
+.photo-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 800px;
+  padding-bottom: 40px;
+}
+.photo-strip .personal-photo img {
+  height: 155px;
+}
+.photo-setup img {
+  object-position: 48% 60%;
+}
+.photo-bike img {
+  object-position: 50% 65%;
+}
+.photo-gym img {
+  object-position: 65% 35%;
+}
+.photo-hardware img {
+  object-position: 50% 45%;
+}
+.photo-server img {
+  object-position: 42% 50%;
+}
+.story-content > .personal-photo {
+  width: 100%;
+  max-width: 320px;
+  margin-top: 22px;
+}
+.hardware-photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 660px;
+  margin: 22px 0;
+}
+.setup-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 16px;
+  max-width: 960px;
+  margin-bottom: 35px;
+}
+@media (max-width: 600px) {
+  .photo-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .photo-strip .personal-photo img {
+    height: 130px;
+  }
+  .setup-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .setup-gallery .personal-photo img {
+    height: 140px;
+  }
+  .personal-photo figcaption {
+    font-size: 10px;
+  }
+  .hardware-photos {
+    grid-template-columns: minmax(0, 320px);
+  }
+  .story-content {
+    min-width: 0;
+  }
+}
+
+.home-portrait {
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  justify-self: center;
+}
+.home-paths {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  border-top: 1px solid #30362c;
+  padding-top: 30px;
+}
+.home-paths > a {
+  padding: 20px 0;
+}
+.home-paths h2 {
+  font-size: 24px;
+}
+.home-paths p {
+  font-size: 13px;
+}
+.home-paths svg {
+  color: var(--accent);
+}
+.setup-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+  gap: 35px;
+  align-items: start;
+  margin-bottom: 30px;
+}
+.setup-overview .terminal {
+  transform: none;
+}
+@media (max-width: 760px) {
+  .home-paths,
+  .setup-overview {
+    grid-template-columns: 1fr;
+  }
+  .home-portrait {
+    max-width: 210px;
+  }
+  .home-paths > a {
+    border-bottom: 1px solid #30362c;
+  }
+  .setup-overview > .personal-photo {
+    max-width: 320px;
+  }
+}

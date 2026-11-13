@@ -124,7 +124,7 @@ Run `npm install`, `npm run dev`; validate with `npm run build` and `npm run lin
 ### Personal profile content
 
 - `src/portfolio/career.ts`: seven work experiences, bilingual descriptions, dates, technologies and courses, curated from the supplied profile JSONs.
-- `src/portfolio/CareerSection.tsx`: reusable timeline (compact disclosures on Home, full descriptions on About).
+- `src/portfolio/CareerSection.tsx`: professional timeline on About.
 - `src/portfolio/LearningSection.tsx`: education, English and courses. Graduation is in progress, expected H2 2027; no CEFR equivalence is inferred.
 - `src/portfolio/interests.ts`: bilingual personal stories, expanded independently from professional experience.
 
@@ -132,6 +132,8 @@ Add future courses to `courses` with a stable ID and PT/EN title. The supplied f
 
 ### Music demo
 
-`src/portfolio/MusicSection.tsx` embeds the supplied Spotify playlist on Home and Life, with a direct-link fallback. The now-playing panel is explicitly a demo; it makes no authenticated API calls and does not claim any track is currently playing. A live integration will require server-side authorization/token storage. The playlist ID can be changed in this shared component.
+`src/portfolio/MusicSection.tsx` embeds the supplied Spotify playlist on Life, with a direct-link fallback. The now-playing panel is explicitly a demo; it makes no authenticated API calls and does not claim any track is currently playing. A live integration will require server-side authorization/token storage. The playlist ID can be changed in this shared component.
 
 The site favicon lives in `public/favicon.svg` and follows the dark/green visual identity.
+
+Content ownership: Home introduces André and links to each area; About owns career and education; Projects owns the showcase; Life owns music and hobbies; Setup owns the desk, hardware photos and machine specifications. Avoid duplicating these sections across pages.

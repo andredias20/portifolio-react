@@ -1,6 +1,5 @@
 import { CareerSection } from "../CareerSection";
 import { LearningSection } from "../LearningSection";
-import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import portrait from "../../assets/profile.jpeg";
 import { professionalLinks, type Language } from "../content";
@@ -28,14 +27,8 @@ export default function AboutPage({ language }: { language: Language }) {
           </h2>
           <p>
             {t(
-              "Gosto de transformar ideias em software e entender o que acontece por trás da interface. Terminal, servidores e hardware fazem parte desse universo.",
-              "I enjoy turning ideas into software and understanding what happens behind the interface. Terminals, servers and hardware are part of that world.",
-            )}
-          </p>
-          <p>
-            {t(
-              "Fora da tela, encontro outros ritmos na bicicleta, no violão e na academia. Design e experimentos com IA completam essa mistura.",
-              "Away from the screen, I find other rhythms through cycling, guitar and the gym. Design and AI experiments complete the mix.",
+              "Várias das ideias que levei para as empresas e que deram mais certo começaram com uma pesquisa no meu tempo livre. Gosto de investigar uma possibilidade, entender como funciona e aplicar quando ela resolve um problema real.",
+              "Several of the ideas I brought to companies that worked best started with research in my free time. I like investigating a possibility, understanding how it works and applying it when it solves a real problem.",
             )}
           </p>
           <div className="actions">
@@ -52,10 +45,6 @@ export default function AboutPage({ language }: { language: Language }) {
               </a>
             ))}
           </div>
-          <Link className="button primary" to="/life">
-            {t("Interesses pessoais", "Personal Life Skills")}{" "}
-            <ArrowUpRight size={18} />
-          </Link>
         </div>
       </div>
       <CareerSection language={language} />

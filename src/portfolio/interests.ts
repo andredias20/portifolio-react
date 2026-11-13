@@ -37,10 +37,6 @@ export const personalInterests: {
         pt: "Gosto de montagem e manutenção de PCs, hardware e servidores. Minha curiosidade por tecnologia vai além do software: também gosto de entender a máquina que faz tudo rodar.",
         en: "I enjoy PC building and maintenance, hardware and servers. My curiosity about technology extends beyond software: I also like understanding the machine that runs it.",
       },
-      {
-        pt: "Linux está entre os meus interesses. Para desenvolver, meu editor principal é o VS Code.",
-        en: "Linux is one of my interests. For development, my main editor is VS Code.",
-      },
     ],
   },
   {
@@ -74,10 +70,6 @@ export const personalInterests: {
       {
         pt: "No tempo livre, experimento agentes de IA e MCP, conectando ferramentas e bases de conhecimento. É mais um lugar onde minha curiosidade vira pesquisa e prática.",
         en: "In my free time, I experiment with AI agents and MCP, connecting tools and knowledge bases. It’s another place where my curiosity turns into research and practice.",
-      },
-      {
-        pt: "No trabalho, também já usei IA para acelerar entregas mais triviais e padronizar implementações. Gosto de explorar onde essas ferramentas realmente ajudam.",
-        en: "At work, I’ve also used AI to speed up simpler deliveries and standardize implementations. I enjoy exploring where these tools actually help.",
       },
     ],
     tools: [{ pt: "Agentes de IA", en: "AI agents" }, "MCP", "Obsidian"],

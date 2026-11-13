@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { PersonalPhoto } from "../PersonalPhoto";
 import { MusicSection } from "../MusicSection";
 import type { Language } from "../content";
 import { heading } from "../PageHeading";
@@ -37,11 +39,25 @@ export default function LifePage({ language }: { language: Language }) {
             <span className="story-number">
               {String(index + 1).padStart(2, "0")}
             </span>
-            <div>
+            <div className="story-content">
               <h2>{interest.title[language]}</h2>
               {interest.paragraphs.map((paragraph, paragraphIndex) => (
                 <p key={paragraphIndex}>{paragraph[language]}</p>
               ))}
+              {interest.id === "bike" && (
+                <PersonalPhoto photo="bike" language={language} />
+              )}
+              {interest.id === "gym" && (
+                <PersonalPhoto photo="gym" language={language} />
+              )}
+              {interest.id === "hardware" && (
+                <Link className="text-link" to="/setup">
+                  {t(
+                    "Ver meu ambiente e equipamentos →",
+                    "See my workspace and equipment →",
+                  )}
+                </Link>
+              )}
               {interest.tools && (
                 <div className="tags">
                   {interest.tools.map((tool) => (
