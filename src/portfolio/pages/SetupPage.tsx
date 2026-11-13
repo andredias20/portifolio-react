@@ -120,6 +120,7 @@ export default function SetupPage({ language }: { language: Language }) {
                 className="terminal-command"
                 onSubmit={(event) => {
                   event.preventDefault();
+                  if (handleServerClick()) return;
                   const value = command.trim();
                   if (value === ":wq") setReply(getQuitMessage(language));
                   else if (value === "sudo")

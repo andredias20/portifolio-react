@@ -137,3 +137,5 @@ Add future courses to `courses` with a stable ID and PT/EN title. The supplied f
 The site favicon lives in `public/favicon.svg` and follows the dark/green visual identity.
 
 Content ownership: Home introduces André and links to each area; About owns career and education; Projects owns the showcase; Life owns music and hobbies; Setup owns the desk, hardware photos and machine specifications. Avoid duplicating these sections across pages.
+
+Profile PDF update: About’s professional introduction also draws on the supplied three-page Profile.pdf. Grownt end date is October 2026 per that PDF; the previously confirmed current Sicredi role and UTFPR expected graduation in H2 2027 are retained rather than reverting to the PDF’s older summary and education dates.
