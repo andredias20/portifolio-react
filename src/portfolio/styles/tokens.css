@@ -1,0 +1,29 @@
+:root {
+  --accent: #c5f879;
+  --muted: #a7afa2;
+  --background: #101211;
+  --surface: #161a15;
+  --foreground: #e8e9e7;
+  --border: #30362c;
+  --space-section: clamp(40px, 6vw, 65px);
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--foreground);
+  background: var(--background);
+  font-synthesis: none;
+  font-weight: 400;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}

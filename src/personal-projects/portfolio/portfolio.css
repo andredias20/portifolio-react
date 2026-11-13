@@ -1,0 +1,40 @@
+.portfolio-case-study {
+  max-width: 800px;
+}
+.portfolio-case-study section {
+  margin: 0 0 48px;
+}
+.portfolio-case-study h2 {
+  font-size: 28px;
+  line-height: 1.3;
+  margin: 0 0 20px;
+}
+.portfolio-case-study h3 {
+  font-size: 20px;
+  margin: 0 0 12px;
+}
+.portfolio-case-study p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.85;
+  margin: 0 0 20px;
+}
+.portfolio-case-study dl > div {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+}
+.portfolio-case-study dd {
+  margin: 0;
+}
+.portfolio-case-study pre {
+  overflow: auto;
+  background: var(--surface);
+  padding: 24px;
+  color: var(--accent);
+}
+.architecture-diagram {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 28px 0;
+}
